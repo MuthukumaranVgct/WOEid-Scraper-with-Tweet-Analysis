@@ -1,5 +1,5 @@
 import pickle
-import Scrapermusthafa as mus
+import Scraper as mus
 import os
 import twitter
 import json
