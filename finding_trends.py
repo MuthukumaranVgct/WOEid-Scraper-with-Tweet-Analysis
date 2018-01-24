@@ -21,3 +21,14 @@ auth = twitter.oauth.OAuth(Twitter['Access Token'],
                            Twitter['Consumer Secret'])
 
 twitter_api = twitter.Twitter(auth=auth)
+print(twitter_api)
+LOCAL_WOE_ID=int(mus.Scraping())
+print(LOCAL_WOE_ID)
+try:
+	local_trends = twitter_api.trends.place(_id=LOCAL_WOE_ID)
+except:
+	print("No Trends available in twitter for given place")
+	exit()
+trends_set = set([trend['name'] for trend in local_trends[0]['trends']]) 
+for trend in trends_set:
+	print(trend)
